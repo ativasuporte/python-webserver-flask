@@ -1,11 +1,14 @@
 from flask import Flask
+import os
 
 app = Flask(__name__)
 
-@app.route("/<maq>")
-def hello_world(maq):
-    print(maq)
-    return "<h1>Ôbá!</h1><p>Bão?</p>"
+@app.route("/block")
+def bloquear():
+
+    os.system("C:/Windows/System32/rundll32.exe user32.dll,LockWorkStation")
+
+    return "<h1>Sua máquina foi bloqueada</h1>"
 
 
 if __name__ == "__main__":
