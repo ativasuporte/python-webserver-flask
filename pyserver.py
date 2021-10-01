@@ -18,12 +18,17 @@ def escrever_senha():
 @app.route("/block")
 def bloquear():
     os.system("C:/Windows/System32/rundll32.exe user32.dll,LockWorkStation")
-    return "<h1>Sua máquina foi bloqueada</h1>"
+    return "Sua máquina foi bloqueada!"
 
 @app.route("/shutdown")
 def desligar():
-    os.system("shutdown -s -t 10 ")
-    return "<h1>Sua máquina está desligando..</h1>"
+    os.system("shutdown -s -t 2")
+    return "Sua máquina está desligando..."
+
+@app.route("/reboot")
+def reiniciar():
+    os.system("shutdown -r -t 2")
+    return "Reiniciando..."
 
 @app.route("/mouse")
 def mouse():
