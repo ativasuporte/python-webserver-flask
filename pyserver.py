@@ -15,7 +15,8 @@ def chamados():
 def video(pasta, nome):
     home = os.path.expanduser("~")
     print(home, pasta, nome)
-    os.system(home + "\\" + pasta + "\\" + nome)
+    arquivo = home + "\\" + pasta + "\\" + nome
+    os.system("start " + arquivo)
     return "O vídeo " + nome + " está passando!"
 
 @app.route("/block")
