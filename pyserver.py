@@ -3,8 +3,11 @@ from flask import request
 import os
 import time
 import requests
+import pyautogui
 
 app = Flask(__name__)
+
+pyautogui.FAILSAFE = False
 
 @app.route("/close")
 def fechar_conexao():
@@ -50,14 +53,15 @@ def reiniciar():
     os.system("shutdown -r -t 2")
     return "Reiniciando..."
 
-@app.route("/mouse")
-def mouse():
-    #tela = pyautogui.size()
-    #largura = tela[0]
-    #altura = tela[1]
-    #pyautogui.moveTo(largura/2, altura/2)
-    #time.sleep(1)
-    #pyautogui.click()
+@app.route("/entrar")
+def entrar():
+    tela = pyautogui.size()
+    largura = tela[0]
+    altura = tela[1]
+    pyautogui.moveTo(largura/2, (2*altura)/3)
+    pyautogui.click()
+    time.sleep(1)
+    pyautogui.click()
     return "Desbloqueado!"
 
 if __name__ == "__main__":
