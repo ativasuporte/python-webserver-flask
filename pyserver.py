@@ -1,19 +1,22 @@
 from flask import Flask
 import os
 import time
-import pyautogui
-import keyboard
+import requests
 
 app = Flask(__name__)
 
-def escrever_senha():
-    time.sleep(1)
-    print("VOU ESCREVER")
-    senha = "JTA*sup"
-    keyboard.write(senha)
-    print("VOU DAR ENTER")
-    keyboard.press_and_release('enter')
-    print("DEI ENTER")
+
+@app.route("/chamados")
+def chamados():
+    r = requests.get("https://script.google.com/macros/s/AKfycbzOjBDFdWihG4yQY-tI7kIsLwcGsaSSt4p-t6yzo5ZW5chzyj0s4WPfiD-lWPqSoo8/exec")
+    return "Temos "+r.text+" chamados pendentes!"
+
+@app.route("/video/<pasta>/<nome>")
+def video(pasta, nome):
+    home = os.path.expanduser("~")
+    print(home, pasta, nome)
+    os.system(home + "\\" + pasta + "\\" + nome)
+    return "O vídeo " + nome + " está passando!"
 
 @app.route("/block")
 def bloquear():
@@ -32,15 +35,13 @@ def reiniciar():
 
 @app.route("/mouse")
 def mouse():
-    tela = pyautogui.size()
-    largura = tela[0]
-    altura = tela[1]
-    pyautogui.moveTo(largura/2, altura/2)
-    time.sleep(1)
-    pyautogui.click()
-    escrever_senha()
+    #tela = pyautogui.size()
+    #largura = tela[0]
+    #altura = tela[1]
+    #pyautogui.moveTo(largura/2, altura/2)
+    #time.sleep(1)
+    #pyautogui.click()
     return "Desbloqueado!"
-
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0',threaded=True)
