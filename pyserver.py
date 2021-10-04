@@ -1,10 +1,18 @@
 from flask import Flask
+from flask import request
 import os
 import time
 import requests
 
 app = Flask(__name__)
 
+@app.route("/close")
+def fechar_conexao():
+    func = request.environ.get("werkzeug.server.shutdown")
+    if func is None:
+        raise RuntimeError("Server não está rodando")
+    func()
+    return "Servidor fechando..."
 
 @app.route("/chamados")
 def chamados():
@@ -45,4 +53,7 @@ def mouse():
     return "Desbloqueado!"
 
 if __name__ == "__main__":
+
     app.run(host='0.0.0.0',threaded=True)
+
+    #mete um request pra um webapp que registra a sessão como ativa (IP, senha, etc)
