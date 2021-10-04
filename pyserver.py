@@ -14,6 +14,14 @@ def fechar_conexao():
     func()
     return "Servidor fechando..."
 
+@app.route("/ping")
+def ping():
+    try:
+        os.system("ping -t google.com -n 2")
+        return "Tudo ok!"
+    except:
+        return "Erro na conexão!"
+
 @app.route("/chamados")
 def chamados():
     r = requests.get("https://script.google.com/macros/s/AKfycbzOjBDFdWihG4yQY-tI7kIsLwcGsaSSt4p-t6yzo5ZW5chzyj0s4WPfiD-lWPqSoo8/exec")
