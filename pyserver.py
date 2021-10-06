@@ -4,6 +4,7 @@ import os
 import time
 import requests
 import pyautogui
+from subprocess import call
 
 app = Flask(__name__)
 
@@ -20,7 +21,7 @@ def fechar_conexao():
 @app.route("/ping")
 def ping():
     try:
-        os.system("ping -t google.com -n 2")
+        call("ping -t google.com -n 2")
         return "Tudo ok!"
     except:
         return "Erro na conexão!"
@@ -35,36 +36,50 @@ def video(pasta, nome):
     home = os.path.expanduser("~")
     arquivo = home + "\\" + pasta + "\\" + nome
     try:
-        os.system("start " + arquivo)
+        call("start " + arquivo)
         return "O vídeo " + nome + " está passando!"
     except:
         return "Houve algum problema na reprodução do vídeo..."
 
 @app.route("/block")
 def bloquear():
-    os.system("C:/Windows/System32/rundll32.exe user32.dll,LockWorkStation")
-    return "Sua máquina foi bloqueada!"
+    try:
+        call("C:/Windows/System32/rundll32.exe user32.dll,LockWorkStation")
+        return "Sua máquina foi bloqueada!"
+    except:
+        return "Houve algum problema..."
 
 @app.route("/shutdown")
 def desligar():
-    os.system("shutdown -s -t 1")
-    return "Sua máquina está desligando..."
+    try:
+        call("shutdown -s -t 1")
+        return "Sua máquina está desligando..."
+    except:
+        return "Houve algum problema..."
 
 @app.route("/reboot")
 def reiniciar():
-    os.system("shutdown -r -t 1")
-    return "Reiniciando..."
+    try:
+        call("shutdown -r -t 1")
+        return "Reiniciando..."
+    except "Houve algum problema..."
 
 @app.route("/entrar")
 def entrar():
-    tela = pyautogui.size()
-    largura = tela[0]
-    altura = tela[1]
-    pyautogui.moveTo(largura/2, (2*altura)/3)
-    pyautogui.click()
-    time.sleep(1)
-    pyautogui.click()
-    return "Desbloqueado!"
+    #tela = pyautogui.size()
+    #largura = tela[0]
+    #altura = tela[1]
+    #pyautogui.moveTo(largura/2, (2*altura)/3)
+    #pyautogui.click()
+    #time.sleep(1)
+    #pyautogui.click()
+    return "Método desativado!"
+
+
+@app.route("/iniciar")
+def iniciar():
+    ip = request.headers.get('Host')
+    print(ip)
 
 if __name__ == "__main__":
 
