@@ -21,7 +21,7 @@ def fechar_conexao():
 @app.route("/ping")
 def ping():
     try:
-        call("ping -t google.com -n 2")
+        call("ping -t google.com -n 1")
         return "Tudo ok!"
     except:
         return "Erro na conexão!"
