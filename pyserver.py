@@ -33,10 +33,12 @@ def chamados():
 @app.route("/video/<pasta>/<nome>")
 def video(pasta, nome):
     home = os.path.expanduser("~")
-    print(home, pasta, nome)
     arquivo = home + "\\" + pasta + "\\" + nome
-    os.system("start " + arquivo)
-    return "O vídeo " + nome + " está passando!"
+    try:
+        os.system("start " + arquivo)
+        return "O vídeo " + nome + " está passando!"
+    except:
+        return "Houve algum problema na reprodução do vídeo..."
 
 @app.route("/block")
 def bloquear():
@@ -45,12 +47,12 @@ def bloquear():
 
 @app.route("/shutdown")
 def desligar():
-    os.system("shutdown -s -t 2")
+    os.system("shutdown -s -t 1")
     return "Sua máquina está desligando..."
 
 @app.route("/reboot")
 def reiniciar():
-    os.system("shutdown -r -t 2")
+    os.system("shutdown -r -t 1")
     return "Reiniciando..."
 
 @app.route("/entrar")
