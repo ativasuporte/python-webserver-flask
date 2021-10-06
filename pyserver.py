@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import request
 import os
+import sys
 import time
 import requests
 import pyautogui
@@ -8,15 +9,31 @@ from subprocess import call
 
 app = Flask(__name__)
 
+#SEMPRE TROCAR ESSA VARIÁVEL PARA 'False' ANTES DE GERAR UM EXECUTÁVEL
+APP_DEBUG = False
+
 pyautogui.FAILSAFE = False
+
+ARQUIVO = sys.executable
 
 @app.route("/close")
 def fechar_conexao():
     func = request.environ.get("werkzeug.server.shutdown")
+
     if func is None:
         raise RuntimeError("Server não está rodando")
+
     func()
-    return "Servidor fechando..."
+
+    if APP_DEBUG == True:
+        print("RODANDO EM DEBUG")
+        os.system(f"start python {__file__}")
+
+    else:
+        print("RODANDO EM PRODUÇÃO")
+        os.system("start " + ARQUIVO)
+
+    return "Servidor reiniciando..."
 
 @app.route("/ping")
 def ping():
