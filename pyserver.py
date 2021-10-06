@@ -62,7 +62,8 @@ def reiniciar():
     try:
         call("shutdown -r -t 1")
         return "Reiniciando..."
-    except "Houve algum problema..."
+    except:
+        return "Houve algum problema..."
 
 @app.route("/entrar")
 def entrar():
