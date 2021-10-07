@@ -9,8 +9,10 @@ from subprocess import call
 
 app = Flask(__name__)
 
-#SEMPRE TROCAR ESSA VARIÁVEL PARA 'False' ANTES DE GERAR UM EXECUTÁVEL
-APP_DEBUG = False
+#Utilize '--debug' na linha de comando para iniciar em modo de debug: 
+if len(sys.argv) > 1 and "--debug" in sys.argv:
+    print("RODANDO EM MODO DE DEBUG...")
+    APP_DEBUG = True
 
 pyautogui.FAILSAFE = False
 
@@ -26,11 +28,9 @@ def fechar_conexao():
     func()
 
     if APP_DEBUG == True:
-        print("RODANDO EM DEBUG")
         os.system(f"start python {__file__}")
 
     else:
-        print("RODANDO EM PRODUÇÃO")
         os.system("start " + ARQUIVO)
 
     return "Servidor reiniciando..."
@@ -92,7 +92,6 @@ def entrar():
     #time.sleep(1)
     #pyautogui.click()
     return "Método desativado!"
-
 
 @app.route("/iniciar")
 def iniciar():
