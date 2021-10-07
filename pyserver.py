@@ -9,12 +9,14 @@ from subprocess import call
 
 app = Flask(__name__)
 
-#Utilize '--debug' na linha de comando para iniciar em modo de debug: 
+pyautogui.FAILSAFE = False
+
+APP_DEBUG = False
+
+#Utilize '--debug' na linha de comando para iniciar em modo de debug:
 if len(sys.argv) > 1 and "--debug" in sys.argv:
     print("RODANDO EM MODO DE DEBUG...")
     APP_DEBUG = True
-
-pyautogui.FAILSAFE = False
 
 ARQUIVO = sys.executable
 
