@@ -55,7 +55,7 @@ def video(pasta, nome):
     home = os.path.expanduser("~")
     arquivo = home + "\\" + pasta + "\\" + nome
     try:
-        call("start " + arquivo)
+        os.system("start " + arquivo)
         return "O vídeo " + nome + " está passando!"
     except:
         return "Houve algum problema na reprodução do vídeo..."
