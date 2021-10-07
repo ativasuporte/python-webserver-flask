@@ -40,8 +40,8 @@ def fechar_conexao():
 @app.route("/ping")
 def ping():
     try:
-        call("ping -t google.com -n 1")
-        return "Tudo ok!"
+        ip = request.headers.get('Host')
+        return "Tudo ok! IP: " + ip
     except:
         return "Erro na conexão!"
 
@@ -95,10 +95,10 @@ def entrar():
     #pyautogui.click()
     return "Método desativado!"
 
-@app.route("/iniciar")
-def iniciar():
-    ip = request.headers.get('Host')
-    print(ip)
+#@app.route("/iniciar")
+#def iniciar():
+    #ip = request.headers.get('Host')
+    #print(ip)
 
 if __name__ == "__main__":
 
