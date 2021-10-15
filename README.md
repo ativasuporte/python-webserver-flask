@@ -30,7 +30,7 @@ Bloqueia sua sessão (como se você tivesse apertado Win + L)
 
 Manda um "pingzinho" pro servidor, pra conferir se a conexão está OK
 
-### Reproduzir arquivo (vídeo, música, etc.) - http://{IP}/<PASTA>/<ARQUIVO.extensão>
+### Reproduzir arquivo (vídeo, música, etc.) - http://{IP}/{PASTA}/{ARQUIVO.extensão}
 
 Reproduz algum arquivo, utilizando o programa padrão. Considere PASTA como sendo a pasta onde o arquivo se encontra, dentro da sua HOME (C:/Users/USUÁRIO/PASTA)
 
