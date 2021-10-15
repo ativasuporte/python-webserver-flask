@@ -1,10 +1,13 @@
+#JOÃO PEDRO, TI - ATIVA NÁUTICA
+#VERSÃO 1.0
+
+
 from flask import Flask
 from flask import request
 import os
 import sys
 import time
 import requests
-import pyautogui
 from subprocess import call
 
 app = Flask(__name__)
@@ -84,24 +87,8 @@ def reiniciar():
     except:
         return "Houve algum problema..."
 
-@app.route("/entrar")
-def entrar():
-    #tela = pyautogui.size()
-    #largura = tela[0]
-    #altura = tela[1]
-    #pyautogui.moveTo(largura/2, (2*altura)/3)
-    #pyautogui.click()
-    #time.sleep(1)
-    #pyautogui.click()
-    return "Método desativado!"
-
-#@app.route("/iniciar")
-#def iniciar():
-    #ip = request.headers.get('Host')
-    #print(ip)
-
 if __name__ == "__main__":
 
     app.run(host='0.0.0.0',threaded=True)
 
-    #mete um request pra um webapp que registra a sessão como ativa (IP, senha, etc)
+    #mete um request pra um webapp que registra a sessão como ativa (IP, porta, etc)
