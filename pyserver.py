@@ -48,11 +48,6 @@ def ping():
     except:
         return "Erro na conexão!"
 
-@app.route("/chamados")
-def chamados():
-    r = requests.get("https://script.google.com/macros/s/AKfycbzOjBDFdWihG4yQY-tI7kIsLwcGsaSSt4p-t6yzo5ZW5chzyj0s4WPfiD-lWPqSoo8/exec")
-    return "Temos "+r.text+" chamados pendentes!"
-
 @app.route("/video/<pasta>/<nome>")
 def video(pasta, nome):
     home = os.path.expanduser("~")
