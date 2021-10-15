@@ -34,6 +34,8 @@ Manda um "pingzinho" pro servidor, pra conferir se a conexão está OK
 
 Reproduz algum arquivo, utilizando o programa padrão.
 Considere PASTA como sendo a pasta onde o arquivo se encontra, dentro da sua HOME (C:/Users/USUÁRIO/PASTA)
+
+
 **Sempre especifique a extensão do arquivo (.mp4, .avi, etc.)! Se possível, renomeie o arquivo para algo como "video_01.mp4", por exemplo. O app não lida bem com nomes com ESPAÇOS...**
 
 ### Reiniciar o app - http://{IP}/close
