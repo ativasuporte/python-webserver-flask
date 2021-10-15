@@ -12,33 +12,33 @@ Todos os atalhos funcionam com o método HTTP **GET**
 
 **SUBSTITUA {IP} PELO ENDEREÇO DO SERVIDOR NA SUA MÁQUINA (XXX.XXX.X.XX:YYYY)!**
 
-Os métodos disponíveis atualmente são:
+## Os métodos disponíveis atualmente são:
 
-## Desligar a máquina - http://{IP}/shutdown
+### Desligar a máquina - http://{IP}/shutdown
 
 Desliga sua máquina
 
-## Reiniciar a máquina - http://{IP}/reboot
+### Reiniciar a máquina - http://{IP}/reboot
 
 Reinicia sua máquina
 
-## Bloquear a sessão de usuário - http://{IP}/block
+### Bloquear a sessão de usuário - http://{IP}/block
 
 Bloqueia sua sessão (como se você tivesse apertado Win + L)
 
-## Checar a conexão - http://{IP}/ping
+### Checar a conexão - http://{IP}/ping
 
 Manda um "pingzinho" pro servidor, pra conferir se a conexão está OK
 
-## Reproduzir arquivo (vídeo, música, etc.) - http://{IP}/<PASTA>/<ARQUIVO.extensão>
+### Reproduzir arquivo (vídeo, música, etc.) - http://{IP}/<PASTA>/<ARQUIVO.extensão>
 
 Reproduz algum arquivo, utilizando o programa padrão.
 Considere PASTA como sendo a pasta onde o arquivo se encontra, dentro da sua HOME (C:/Users/USUÁRIO/PASTA)
 **Sempre especifique a extensão do arquivo (.mp4, .avi, etc.)! Se possível, renomeie o arquivo para algo como "video_01.mp4", por exemplo. O app não lida bem com nomes com ESPAÇOS...**
 
-## Resumo dos chamados em aberto (TI) - é segredo xD xD
+### Resumo dos chamados em aberto (TI) - é segredo xD xD
 
-## Reiniciar o app - http://{IP}/close
+### Reiniciar o app - http://{IP}/close
 
 Reinicia o servidor, caso haja algum problema (mas ainda haja conexão)
 Raramente essa função vai ser útil, mas melhor prevenir do que remediar.
