@@ -12,8 +12,6 @@ from subprocess import call
 
 app = Flask(__name__)
 
-pyautogui.FAILSAFE = False
-
 APP_DEBUG = False
 
 #Utilize '--debug' na linha de comando para iniciar em modo de debug:
